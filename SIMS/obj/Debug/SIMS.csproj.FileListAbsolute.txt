@@ -1,0 +1,23 @@
+I:\VS_Mine\Web\MyProjects\SIMS\SIMS\bin\SIMS.dll.config
+I:\VS_Mine\Web\MyProjects\SIMS\SIMS\bin\SIMS.dll
+I:\VS_Mine\Web\MyProjects\SIMS\SIMS\bin\SIMS.pdb
+I:\VS_Mine\Web\MyProjects\SIMS\SIMS\obj\Debug\SIMS.dll
+I:\VS_Mine\Web\MyProjects\SIMS\SIMS\obj\Debug\SIMS.pdb
+G:\SEIP\Project\Web\MyProjects\SIMS\SIMS\bin\SIMS.dll.config
+G:\SEIP\Project\Web\MyProjects\SIMS\SIMS\bin\SIMS.dll
+G:\SEIP\Project\Web\MyProjects\SIMS\SIMS\bin\SIMS.pdb
+G:\SEIP\Project\Web\MyProjects\SIMS\SIMS\obj\Debug\SIMS.csprojResolveAssemblyReference.cache
+G:\SEIP\Project\Web\MyProjects\SIMS\SIMS\obj\Debug\SIMS.dll
+G:\SEIP\Project\Web\MyProjects\SIMS\SIMS\obj\Debug\SIMS.pdb
+C:\Users\Mitch\Desktop\New folder\SIMS\SIMS\bin\SIMS.dll.config
+C:\Users\Mitch\Desktop\New folder\SIMS\SIMS\bin\SIMS.dll
+C:\Users\Mitch\Desktop\New folder\SIMS\SIMS\bin\SIMS.pdb
+C:\Users\Mitch\Desktop\New folder\SIMS\SIMS\obj\Debug\SIMS.csprojResolveAssemblyReference.cache
+C:\Users\Mitch\Desktop\New folder\SIMS\SIMS\obj\Debug\SIMS.dll
+C:\Users\Mitch\Desktop\New folder\SIMS\SIMS\obj\Debug\SIMS.pdb
+D:\Mitch\Project\SIMS\SIMS\bin\SIMS.dll.config
+D:\Mitch\Project\SIMS\SIMS\bin\SIMS.dll
+D:\Mitch\Project\SIMS\SIMS\bin\SIMS.pdb
+D:\Mitch\Project\SIMS\SIMS\obj\Debug\SIMS.csprojResolveAssemblyReference.cache
+D:\Mitch\Project\SIMS\SIMS\obj\Debug\SIMS.dll
+D:\Mitch\Project\SIMS\SIMS\obj\Debug\SIMS.pdb
