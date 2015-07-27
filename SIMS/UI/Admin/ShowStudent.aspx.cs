@@ -32,7 +32,10 @@ namespace SIMS.UI.Admin
 
         protected void departmentDropDownlist_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            studentInformationGridView.DataSource =
+                addStudentBll.GetStudentInformationByAndDepartmentId(studentIdTextBox.Text,
+                    Convert.ToInt32(departmentDropDownlist.SelectedValue));
+            studentInformationGridView.DataBind();
         }
     }
 }

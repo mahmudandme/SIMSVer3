@@ -44,5 +44,9 @@ namespace SIMS.BLL.Admin
             return addStudentDal.GetStudentInformationByLastIdentity();
         }
 
+        public List<ShowStudentInformationModel> GetStudentInformationByAndDepartmentId(string studentId,int deptId)
+        {
+            return addStudentDal.GetStudentInformationById(studentId, deptId);
+        }
     }
 }

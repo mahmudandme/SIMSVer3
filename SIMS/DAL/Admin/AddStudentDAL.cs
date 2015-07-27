@@ -215,12 +215,42 @@ namespace SIMS.DAL.Admin
             return generatedStudentModels;
         }
 
-        public void GetStudentInformationById(string studentId, int departmentId)
+        public List<ShowStudentInformationModel> GetStudentInformationById(string studentId, int departmentId)
         {
             List<ShowStudentInformationModel> showStudentInformationModels = new List<ShowStudentInformationModel>();
             string query = String.Format("spGetStudentInformationByDepartmentIdAndStudentId");
-            string query2 = String.Format("spGetStudentInformationByDepartmentId");
+            if (studentId == String.Empty)
+            {
+                query = String.Format("spGetStudentInformationByDepartmentId");   
+            }
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings[1].ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query,connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@deptId",departmentId);
+                    command.Parameters.AddWithValue("@studentId", departmentId);
+
+                    connection.Open();
+                    SqlDataReader rdr = command.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        ShowStudentInformationModel showStudentInformationModel = new ShowStudentInformationModel();
+                        showStudentInformationModel.StudentID = rdr[0].ToString();
+                        showStudentInformationModel.StudentName = rdr[1].ToString();
+                        showStudentInformationModel.Gender = rdr[2].ToString();
+                        showStudentInformationModel.Nationality = rdr[3].ToString();
+                        showStudentInformationModel.Session = rdr[4].ToString();
+                        showStudentInformationModel.YearTerm = rdr[5].ToString();
+                        showStudentInformationModels.Add(showStudentInformationModel);
+                    }
+                    connection.Close();
+                }
+            }
+            return showStudentInformationModels;
         }
+
+
 
 
 
