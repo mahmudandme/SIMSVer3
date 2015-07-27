@@ -21,3 +21,5 @@ D:\Mitch\Project\SIMS\SIMS\bin\SIMS.pdb
 D:\Mitch\Project\SIMS\SIMS\obj\Debug\SIMS.csprojResolveAssemblyReference.cache
 D:\Mitch\Project\SIMS\SIMS\obj\Debug\SIMS.dll
 D:\Mitch\Project\SIMS\SIMS\obj\Debug\SIMS.pdb
+G:\SEIP\Project\Web\MyProjects\SIMS\SIMS\bin\itextsharp.dll
+G:\SEIP\Project\Web\MyProjects\SIMS\SIMS\bin\itextsharp.xml

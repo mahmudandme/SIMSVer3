@@ -38,6 +38,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp">
+      <HintPath>E:\Study_Soft\C#_soft\iTextSharp\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -124,9 +127,11 @@
     <Compile Include="Models\AddStudentModel.cs" />
     <Compile Include="Models\DepartmentModel.cs" />
     <Compile Include="Models\GenderModel.cs" />
+    <Compile Include="Models\GeneratedStudentModel.cs" />
     <Compile Include="Models\NationalityModel.cs" />
     <Compile Include="Models\SessionMedel.cs" />
     <Compile Include="Models\ShowAllDepartmentInformationModel.cs" />
+    <Compile Include="Models\ShowStudentInformationModel.cs" />
     <Compile Include="Models\YearTermModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\Admin\AddAdmin.aspx.cs">

@@ -183,6 +183,7 @@ namespace SIMS.UI.Admin
             }
             stringWriter.Write(random.Next(0,9));
             stringWriter.Write((char)random.Next(65,97));
+            Session["studentPassword"] = stringWriter.ToString();
             return stringWriter.ToString();
          }
 

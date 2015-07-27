@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.SessionState;
 using SIMS.Models;
 
 namespace SIMS.DAL.Admin
@@ -127,8 +128,7 @@ namespace SIMS.DAL.Admin
                         isStudentIdAndDeptIdExist = true;
                     }
                     command.Parameters.Clear();
-                    connection.Close();
-                    
+                    connection.Close();                    
                 }
             }
             return isStudentIdAndDeptIdExist;
@@ -167,6 +167,62 @@ namespace SIMS.DAL.Admin
             return rowsInserted;
         }
 
-         
+        //public int GetLastIdentityOfAddedStudent()
+        //{
+        //    string query = String.Format("Select IDENT_CURRENT('tblStudent')");
+        //    int lastIdentity = 0;
+        //    using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings[1].ConnectionString))
+        //    {
+        //        using (SqlCommand command = new SqlCommand(query,connection))
+        //        {
+        //            lastIdentity = Convert.ToInt32(command.ExecuteScalar());
+        //        }
+        //    }
+        //    return lastIdentity;
+        //}
+
+        public List<GeneratedStudentModel> GetStudentInformationByLastIdentity()
+        {
+            List<GeneratedStudentModel> generatedStudentModels = new List<GeneratedStudentModel>();
+            
+           // int lastIdentity = GetLastIdentityOfAddedStudent();
+            string query = String.Format("SpGetAddedStudentInformation");
+
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings[1].ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query,connection))
+                {
+                    connection.Open();
+                    SqlDataReader rdr = command.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        GeneratedStudentModel generatedStudentModel = new GeneratedStudentModel();
+                        generatedStudentModel.StudentName = rdr[0].ToString();
+                        generatedStudentModel.StudentID = rdr[1].ToString();
+                        generatedStudentModel.DepartmentName = rdr[2].ToString();
+                        generatedStudentModel.Session = rdr[3].ToString();
+                        generatedStudentModel.Email = rdr[4].ToString();
+                        if (HttpContext.Current.Session["studentPassword"] != null)
+                        {
+                            generatedStudentModel.Password = HttpContext.Current.Session["studentPassword"].ToString();
+                        }
+                       generatedStudentModels.Add(generatedStudentModel); 
+                    }
+                    connection.Close();
+                    
+                }
+            }
+            return generatedStudentModels;
+        }
+
+        public void GetStudentInformationById(string studentId, int departmentId)
+        {
+            List<ShowStudentInformationModel> showStudentInformationModels = new List<ShowStudentInformationModel>();
+            string query = String.Format("spGetStudentInformationByDepartmentIdAndStudentId");
+            string query2 = String.Format("spGetStudentInformationByDepartmentId");
+        }
+
+
+
     }
 }

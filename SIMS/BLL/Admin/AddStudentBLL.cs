@@ -39,5 +39,10 @@ namespace SIMS.BLL.Admin
             return addStudentDal.SaveStudentInformation(addStudentModel);
         }
 
+        public List<GeneratedStudentModel> GetGeneratedStudentInformation()
+        {
+            return addStudentDal.GetStudentInformationByLastIdentity();
+        }
+
     }
 }
