@@ -23,3 +23,9 @@ D:\Mitch\Project\SIMS\SIMS\obj\Debug\SIMS.dll
 D:\Mitch\Project\SIMS\SIMS\obj\Debug\SIMS.pdb
 G:\SEIP\Project\Web\MyProjects\SIMS\SIMS\bin\itextsharp.dll
 G:\SEIP\Project\Web\MyProjects\SIMS\SIMS\bin\itextsharp.xml
+F:\Mahmud\SIMS_02_08_2015\SIMSver2\SIMS\bin\SIMS.dll
+F:\Mahmud\SIMS_02_08_2015\SIMSver2\SIMS\bin\SIMS.pdb
+F:\Mahmud\SIMS_02_08_2015\SIMSver2\SIMS\bin\itextsharp.xml
+F:\Mahmud\SIMS_02_08_2015\SIMSver2\SIMS\obj\Debug\SIMS.csprojResolveAssemblyReference.cache
+F:\Mahmud\SIMS_02_08_2015\SIMSver2\SIMS\obj\Debug\SIMS.dll
+F:\Mahmud\SIMS_02_08_2015\SIMSver2\SIMS\obj\Debug\SIMS.pdb

@@ -9,6 +9,8 @@ namespace SIMS.Models
     {
         public string StudentID { get; set; }
         public string StudentName { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
         public string Gender { get; set; }
         public string Nationality { get; set; }
         public string DepartmentName { get; set; }
