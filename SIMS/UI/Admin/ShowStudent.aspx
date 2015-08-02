@@ -35,24 +35,37 @@
      </div> --%>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                <div class="form-group">
-                    <asp:GridView ID="studentInformationGridView" AutoGenerateColumns="False" CssClass="table table-responsive table-bordered" runat="server">
+            <div class="col-lg-12 col-md-12 col-sm-4 col-xs-4">
+                <div class="form-group" style="margin-top: 100px">
+                    
+                    <asp:GridView ID="studentInformationGridView" AutoGenerateColumns="False" CssClass="table table-responsive table-hover" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
+                        <AlternatingRowStyle BackColor="White" />
                         <Columns>
                             <asp:TemplateField HeaderText="No.">
                                 <ItemTemplate>
-                                    <%# Container.DataItemIndex+1 %>>
+                                    <%# Container.DataItemIndex+1 %>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:BoundField HeaderText="Student ID" DataField="StudentID" />
-                             <asp:BoundField HeaderText="Name" DataField="StudentName" />
-                             <asp:BoundField HeaderText="Gender" DataField="Gender" />
+                            <asp:BoundField HeaderText="Name" DataField="StudentName" />
+                            <asp:BoundField HeaderText="Phone" DataField="Phone" />
+                            <asp:BoundField HeaderText="Email" DataField="Email" />
+                            <asp:BoundField HeaderText="Gender" DataField="Gender" />
                             <asp:BoundField HeaderText="Nationality" DataField="Nationality" />
-                             <asp:BoundField HeaderText="Department" DataField="DepartmentName" />
-                             <asp:BoundField HeaderText="Session" DataField="Session" />
+                            <asp:BoundField HeaderText="Department" DataField="DepartmentName" />
+                            <asp:BoundField HeaderText="Session" DataField="Session" />
                             <asp:BoundField HeaderText="Year-Term" DataField="YearTerm" />                                                                                     
                         </Columns>
-
+                        <EditRowStyle BackColor="#2461BF" />
+                        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                        <RowStyle BackColor="#EFF3FB" />
+                        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                        <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                        <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                        <SortedDescendingHeaderStyle BackColor="#4870BE" />
                     </asp:GridView>    
                 </div>
             </div>

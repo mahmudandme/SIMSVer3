@@ -165,21 +165,7 @@ namespace SIMS.DAL.Admin
                 }
             }
             return rowsInserted;
-        }
-
-        //public int GetLastIdentityOfAddedStudent()
-        //{
-        //    string query = String.Format("Select IDENT_CURRENT('tblStudent')");
-        //    int lastIdentity = 0;
-        //    using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings[1].ConnectionString))
-        //    {
-        //        using (SqlCommand command = new SqlCommand(query,connection))
-        //        {
-        //            lastIdentity = Convert.ToInt32(command.ExecuteScalar());
-        //        }
-        //    }
-        //    return lastIdentity;
-        //}
+        }        
 
         public List<GeneratedStudentModel> GetStudentInformationByLastIdentity()
         {
@@ -218,18 +204,31 @@ namespace SIMS.DAL.Admin
         public List<ShowStudentInformationModel> GetStudentInformationById(string studentId, int departmentId)
         {
             List<ShowStudentInformationModel> showStudentInformationModels = new List<ShowStudentInformationModel>();
-            string query = String.Format("spGetStudentInformationByDepartmentIdAndStudentId");
+            string query = "";
             if (studentId == String.Empty)
             {
-                query = String.Format("spGetStudentInformationByDepartmentId");   
+                query = String.Format("spGetStudentByDeptId");   
+            }
+            else
+            {
+                query = String.Format("spGetStudentByIdAndDeptId"); 
             }
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings[1].ConnectionString))
             {
                 using (SqlCommand command = new SqlCommand(query,connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@deptId",departmentId);
-                    command.Parameters.AddWithValue("@studentId", departmentId);
+                   
+                    if (studentId ==String.Empty)
+                    {
+                        command.Parameters.AddWithValue("@deptId", departmentId);
+                    }
+                    else
+                    {
+                        command.Parameters.AddWithValue("@studentId", studentId);
+                        command.Parameters.AddWithValue("@deptId", departmentId);
+                    }
+                    
 
                     connection.Open();
                     SqlDataReader rdr = command.ExecuteReader();
@@ -238,10 +237,13 @@ namespace SIMS.DAL.Admin
                         ShowStudentInformationModel showStudentInformationModel = new ShowStudentInformationModel();
                         showStudentInformationModel.StudentID = rdr[0].ToString();
                         showStudentInformationModel.StudentName = rdr[1].ToString();
-                        showStudentInformationModel.Gender = rdr[2].ToString();
-                        showStudentInformationModel.Nationality = rdr[3].ToString();
-                        showStudentInformationModel.Session = rdr[4].ToString();
-                        showStudentInformationModel.YearTerm = rdr[5].ToString();
+                        showStudentInformationModel.Phone = rdr[2].ToString();
+                        showStudentInformationModel.Email = rdr[3].ToString();
+                        showStudentInformationModel.Gender = rdr[4].ToString();
+                        showStudentInformationModel.Nationality = rdr[5].ToString();
+                        showStudentInformationModel.DepartmentName = rdr[6].ToString();
+                        showStudentInformationModel.Session = rdr[7].ToString();
+                        showStudentInformationModel.YearTerm = rdr[8].ToString();
                         showStudentInformationModels.Add(showStudentInformationModel);
                     }
                     connection.Close();
