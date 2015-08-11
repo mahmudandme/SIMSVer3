@@ -48,5 +48,15 @@ namespace SIMS.BLL.Admin
         {
             return addStudentDal.GetStudentInformationById(studentId, deptId);
         }
+
+        public bool IsRegistrationPermissionExist(RegistrationPermissionModel registrationPermissionModel)
+        {
+            return addStudentDal.IsRegistrationPermissionExist(registrationPermissionModel);
+        }
+
+        public int SaveRegistrationPermission(RegistrationPermissionModel registrationPermissionModel)
+        {
+            return addStudentDal.SaveRegistrationPermission(registrationPermissionModel);
+        }
     }
 }

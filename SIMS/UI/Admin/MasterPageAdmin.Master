@@ -52,9 +52,22 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-left">
-            <li><a href="Home.aspx">Dashboard</a></li>
-            <li><a href="AddAdmin.aspx">Settings</a></li>            
-            <li><a href="Documentation.aspx">Documentation</a></li>
+            <li><a href="../Admin/Home.aspx">Dashboard</a></li>
+            <li><a href="../Admin/AddAdmin.aspx">Settings</a></li>            
+            <li><a href="../Admin/Documentation.aspx">Documentation</a></li>
+              <li><a href="../Student/StudentHome.aspx">Home</a></li>
+              <li><a href="../Student/StudentResult.aspx">Result</a></li>
+               <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Registration <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+               <li><a href="../Student/SemisterRegistration.aspx">Semister registration</a></li>
+               <li><a href="../Student/BacklogRegistration.aspx">Backlog registration</a></li>               
+               <li class="divider"></li>               
+            </ul>
+         </li>          
+              <li><a href="../Student/GraduationStatus.aspx">Progress report</a></li>
           </ul>         
         </div>          
       </div>
@@ -70,14 +83,15 @@
                Add <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">               
-               <li><a href="AddStudentSession.aspx">Add Session</a></li>
-               <li><a href="AddNationality.aspx">Add Nationality</a></li>
+               <li><a href="../Admin/AddStudentSession.aspx">Add Session</a></li>
+               <li><a href="../Admin/AddNationality.aspx">Add Nationality</a></li>
                <li class="divider"></li>
-                <li><a href="AddDepartment.aspx">Add Department</a></li>
-                <li><a href="AddFaculty.aspx">Add Faculty</a></li>
+                <li><a href="../Admin/AddDepartment.aspx">Add Department</a></li>
+                <li><a href="../Admin/AddFaculty.aspx">Add Faculty</a></li>
                 <li class="divider"></li>
-               <li><a href="AddStudent.aspx">Student's Information</a></li>               
-               <li><a href="AddTeacher.aspx">Teacher's Information</a></li>
+               <li><a href="../Admin/AddStudent.aspx">Student's Information</a></li>               
+               <li><a href="../Admin/AddTeacher.aspx">Teacher's Information</a></li>
+                <li><a href="../Admin/GiveRegistrationPermission.aspx">Registration Permission</a></li>
             </ul>
          </li>           
               <li class="dropdown">
@@ -85,33 +99,28 @@
               Show <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-               <li><a href="ShowTeacher.aspx">Teacher's Information</a></li>
-               <li><a href="ShowStudent.aspx">Student's Information</a></li>
-               <li><a href="ShowAdmins.aspx">Admins</a></li>
+               <li><a href="../Admin/ShowTeacher.aspx">Teacher's Information</a></li>
+               <li><a href="../Admin/ShowStudent.aspx">Student's Information</a></li>
+               <li><a href="../Admin/ShowAdmins.aspx">Admins</a></li>
                <li class="divider"></li>               
             </ul>
          </li>                                        
           </ul>
           <ul class="nav nav-sidebar">
-            <li><a href="ShowStudentResult.aspx">Show Result</a></li>
-            <li><a href="AddStudentResult.aspx">Add Result</a></li>
-            <li><a href="AddStudentBacklogCourse.aspx">Add Backlog</a></li>
-           
+            <li><a href="../Admin/ShowStudentResult.aspx">Show Result</a></li>
+            <li><a href="../Admin/AddStudentResult.aspx">Add Result</a></li>
+            <li><a href="../Admin/AddStudentBacklogCourse.aspx">Add Backlog</a></li>           
           </ul>
           <ul class="nav nav-sidebar">
-            <li><a href="">Nav item again</a></li>
-           
+            <li><a href="">Nav item again</a></li>           
           </ul>
         </div>
           <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
               
-          </asp:ContentPlaceHolder>
-          
-
+          </asp:ContentPlaceHolder>          
       </div>
     </div>
-</form>
-    
+</form>    
       <script src="../../Scripts/jquery-1.9.1.min.js"></script>
       <script src="../../Scripts/bootstrap.min.js"></script>
   </body>

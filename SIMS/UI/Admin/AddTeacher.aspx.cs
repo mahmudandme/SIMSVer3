@@ -17,6 +17,7 @@ namespace SIMS.UI.Admin
         {
             if (!IsPostBack)
             {
+                
                 GetAllGenderInDropdownlist();
                 ListItem listItemGender = new ListItem("Select gender","-1");
                 genderDropDownList.Items.Insert(0,listItemGender);
@@ -30,6 +31,8 @@ namespace SIMS.UI.Admin
                 departmentDropDownList.Items.Insert(0, listItemDepartment);
             }
         }
+
+        
 
         public void GetAllGenderInDropdownlist()
         {
@@ -57,6 +60,11 @@ namespace SIMS.UI.Admin
         protected void saveButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void joiningDateCalendar_SelectionChanged(object sender, EventArgs e)
+        {
+            dateTextBox.Text = joiningDateCalendar.SelectedDate.ToShortDateString();
         }
         
               

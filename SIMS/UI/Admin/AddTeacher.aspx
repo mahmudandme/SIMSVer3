@@ -85,7 +85,7 @@
 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
         <div class="form-group">
     <label for="inputdefault"  class="text-center" >Select date</label><br/>
-            <asp:Calendar ID="joiningDateCalendar" runat="server"></asp:Calendar>
+            <asp:Calendar ID="joiningDateCalendar" runat="server" OnSelectionChanged="joiningDateCalendar_SelectionChanged"></asp:Calendar>
   </div>         
 </div>                                                              
         </div>
