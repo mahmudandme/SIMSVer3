@@ -1,4 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPageAdmin.master.cs" Inherits="SIMS.UI.Admin.MasterPageAdmin" %>
+<%@ Import Namespace="SIMS.Models" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,6 +40,45 @@
 
   <body>
      <form id="form1" runat="server">
+         
+            <%
+
+                //   string codeUser = (string)Session["adminEmail"];
+
+                if (Session["loginInformation"] != null)
+                {
+                    LoginModel loginModel = (LoginModel)Session["loginInformation"];
+                    if (loginModel.Type == 1)
+                    {
+                        adminDiv2.Style.Add("display", "inline");
+                        adminDiv1.Style.Add("display", "inline");
+                        logoutRegion.Style.Add("display", "inline");
+                        userInformationRegion.InnerText = loginModel.Name;
+                        loginPageDiv.Style.Add("display", "none");
+                        studentDiv.Style.Add("display", "none");
+
+                    }
+                    else
+                    {
+                        adminDiv1.Style.Add("display", "none");
+                        adminDiv2.Style.Add("display", "none");
+                        logoutRegion.Style.Add("display", "inline");
+                        userInformationRegion.InnerText = loginModel.Name;
+                        loginPageDiv.Style.Add("display", "none");
+                        studentDiv.Style.Add("display", "inline");
+                    }
+                }
+                else
+                {
+                    adminDiv2.Style.Add("display", "none");
+                    adminDiv1.Style.Add("display", "none");
+                    logoutRegion.Style.Add("display", "none");
+                    userInformationRegion.Style.Add("display", "none");
+                    studentDiv.Style.Add("display", "none");
+
+                }
+        %>
+
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -52,9 +92,17 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-left">
+              <%--common--%>
+              <div class="nav navbar-nav" runat="server" id="commonDiv1">
             <li><a href="../Admin/Home.aspx">Dashboard</a></li>
+              </div>
+             <%-- adminDiv2--%>
+              <div id="adminDiv2" class="nav navbar-nav" runat="server">
             <li><a href="../Admin/AddAdmin.aspx">Settings</a></li>            
             <li><a href="../Admin/Documentation.aspx">Documentation</a></li>
+              </div>
+             <%-- studentDiv--%>
+              <div id="studentDiv" class="nav navbar-nav" runat="server">
               <li><a href="../Student/StudentHome.aspx">Home</a></li>
               <li><a href="../Student/StudentResult.aspx">Result</a></li>
                <li class="dropdown">
@@ -68,15 +116,29 @@
             </ul>
          </li>          
               <li><a href="../Student/GraduationStatus.aspx">Progress report</a></li>
-          </ul>         
+              </div>
+        <%--      there something common--%>
+              <div id="loginPageDiv" runat="server" class="nav navbar-nav">
+               <li><a href="../Admin/Login.aspx">Login</a></li>
+              </div>
+          </ul> 
+             <p class="navbar-text navbar-right" id="userInformationRegion" runat="server">       
+                        
+                    </p>
+                    <p class="navbar-text navbar-right" id="logoutRegion" runat="server">        
+                       <%-- <asp:LinkButton ID="logOutButton" runat="server" OnClick="logOutButton_OnClick">Logout</asp:LinkButton>--%>
+                   <%--<a runat="server" id="logOutButton" CausesValidation="False">Logout</a>--%>
+                   <asp:LinkButton ID="logoutButton" CssClass="pull-right" OnClick="logoutButton_Click"  CausesValidation="False" runat="server" >Logout</asp:LinkButton>
+                         </p>                    
         </div>          
       </div>
     </nav>
-
-    <div class="container-fluid">
+  <%--adminDiv--%>
+    <div class="container-fluid" id="adminDiv1">
       <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
+        <div class="col-sm-3 col-md-2 sidebar" id="adminDiv1" runat="server">
           <ul class="nav nav-sidebar">
+            
             <li class="active"><a href="">Overview <span class="sr-only">(current)</span></a></li>
             <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -109,10 +171,12 @@
           <ul class="nav nav-sidebar">
             <li><a href="../Admin/ShowStudentResult.aspx">Show Result</a></li>
             <li><a href="../Admin/AddStudentResult.aspx">Add Result</a></li>
-            <li><a href="../Admin/AddStudentBacklogCourse.aspx">Add Backlog</a></li>           
+            <li><a href="../Admin/AddStudentBacklogCourse.aspx">Add Backlog</a></li> 
+                      
           </ul>
           <ul class="nav nav-sidebar">
-            <li><a href="">Nav item again</a></li>           
+            <li><a href="">Nav item again</a></li>  
+                     
           </ul>
         </div>
           <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

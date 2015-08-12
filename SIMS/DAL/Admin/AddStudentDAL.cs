@@ -157,7 +157,7 @@ namespace SIMS.DAL.Admin
                     command.Parameters.AddWithValue("@yearTermId", addStudentModel.YearTermId);
                     command.Parameters.AddWithValue("@salt", addStudentModel.Salt);
                     command.Parameters.AddWithValue("@password", addStudentModel.Password);
-
+                    command.Parameters.AddWithValue("@type", addStudentModel.Type);
                     connection.Open();
                     rowsInserted = command.ExecuteNonQuery();                   
                     connection.Close();

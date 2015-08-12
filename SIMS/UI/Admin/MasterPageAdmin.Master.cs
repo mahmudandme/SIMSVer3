@@ -13,5 +13,11 @@ namespace SIMS.UI.Admin
         {
 
         }
+
+        protected void logoutButton_Click(object sender, EventArgs e)
+        {
+            Session["loginInformation"] = null;
+            Response.Redirect("Home.aspx");
+        }
     }
 }

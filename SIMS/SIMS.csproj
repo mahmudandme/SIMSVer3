@@ -70,6 +70,7 @@
     <Content Include="UI\Admin\AddStudentBacklogCourse.aspx" />
     <Content Include="UI\Admin\AddStudentResult.aspx" />
     <Content Include="UI\Admin\AddStudentSession.aspx" />
+    <Content Include="UI\Admin\CreatedAdmin.aspx" />
     <Content Include="UI\Admin\Documentation.aspx" />
     <Content Include="UI\Admin\GiveRegistrationPermission.aspx" />
     <Content Include="UI\Admin\Login.aspx" />
@@ -99,7 +100,6 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
-    <Content Include="UI\Admin\AddAdmin.aspx" />
     <Content Include="UI\Admin\AddDepartment.aspx" />
     <Content Include="UI\Admin\AddResult.aspx" />
     <Content Include="UI\Admin\AddStudent.aspx" />
@@ -123,20 +123,24 @@
     <Compile Include="BLL\Admin\AddNationalityBLL.cs" />
     <Compile Include="BLL\Admin\AddSessionBLL.cs" />
     <Compile Include="BLL\Admin\AddStudentBLL.cs" />
+    <Compile Include="BLL\Admin\AdminBLL.cs" />
     <Compile Include="DAL\Admin\AddFacultyDAL.cs" />
     <Compile Include="DAL\Admin\AddDepartmentDAL.cs" />
     <Compile Include="DAL\Admin\AddNationalityDAL.cs" />
     <Compile Include="DAL\Admin\AddSessionDAL.cs" />
     <Compile Include="DAL\Admin\AddStudentDAL.cs" />
+    <Compile Include="DAL\Admin\AdminDAL.cs" />
     <Compile Include="DAL\Admin\TeacherDAL.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AddFacultyModel.cs" />
     <Compile Include="Models\AddStudentModel.cs" />
+    <Compile Include="Models\AdminModel.cs" />
     <Compile Include="Models\DepartmentModel.cs" />
     <Compile Include="Models\GenderModel.cs" />
     <Compile Include="Models\GeneratedStudentModel.cs" />
+    <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\NationalityModel.cs" />
     <Compile Include="Models\RegistrationPermissionModel.cs" />
     <Compile Include="Models\SessionMedel.cs" />
@@ -145,13 +149,6 @@
     <Compile Include="Models\TeacherModel.cs" />
     <Compile Include="Models\YearTermModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI\Admin\AddAdmin.aspx.cs">
-      <DependentUpon>AddAdmin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UI\Admin\AddAdmin.aspx.designer.cs">
-      <DependentUpon>AddAdmin.aspx</DependentUpon>
-    </Compile>
     <Compile Include="UI\Admin\AddDepartment.aspx.cs">
       <DependentUpon>AddDepartment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -221,6 +218,13 @@
     </Compile>
     <Compile Include="UI\Admin\AddTeacher.aspx.designer.cs">
       <DependentUpon>AddTeacher.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Admin\CreatedAdmin.aspx.cs">
+      <DependentUpon>CreatedAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Admin\CreatedAdmin.aspx.designer.cs">
+      <DependentUpon>CreatedAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Admin\Documentation.aspx.cs">
       <DependentUpon>Documentation.aspx</DependentUpon>

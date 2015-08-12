@@ -21,7 +21,8 @@ namespace SIMS.Models
         public int SessionId { get; set; }
 
         public string Salt { get; set; }
-        public string Password { get; set; }    
+        public string Password { get; set; }
+        public int Type { get; set; }         
 
     }
 }

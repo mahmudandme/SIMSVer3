@@ -5,7 +5,7 @@
  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">   
  <div class="row">
 
-<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
          <div class="form-group">
              <asp:GridView ID="CreatedStudentInformationGridView" CssClass="table table-responsive"
                   runat="server" BackColor="White" BorderColor="#3366CC" BorderStyle="None" 

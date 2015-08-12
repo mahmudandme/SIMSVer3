@@ -96,7 +96,10 @@ namespace SIMS.UI.Admin
             addStudentModel.YearTermId = Convert.ToInt32(yearTermDropDownList.SelectedValue);
             addStudentModel.SessionId = Convert.ToInt32(sessionDropDownList.SelectedValue);
             addStudentModel.Salt = GenerateSalt();
-            addStudentModel.Password = GenerateHashValue(GeneratePassword(),GenerateSalt());
+            string passwordStd = GeneratePassword();
+            Session["studentPassword"] = passwordStd;
+            addStudentModel.Password = GenerateHashValue(passwordStd, addStudentModel.Salt);
+            addStudentModel.Type = 2;
 
             if (IsTextBoxEmpty())
             {
