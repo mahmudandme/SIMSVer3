@@ -131,6 +131,7 @@
     <Compile Include="DAL\Admin\AddStudentDAL.cs" />
     <Compile Include="DAL\Admin\AdminDAL.cs" />
     <Compile Include="DAL\Admin\TeacherDAL.cs" />
+    <Compile Include="DAL\Student\StudentDAL.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -146,6 +147,7 @@
     <Compile Include="Models\SessionMedel.cs" />
     <Compile Include="Models\ShowAllDepartmentInformationModel.cs" />
     <Compile Include="Models\ShowStudentInformationModel.cs" />
+    <Compile Include="Models\StudentModel.cs" />
     <Compile Include="Models\TeacherModel.cs" />
     <Compile Include="Models\YearTermModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -328,7 +330,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="BLL\Student\" />
-    <Folder Include="DAL\Student\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
