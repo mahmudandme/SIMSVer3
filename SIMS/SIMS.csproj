@@ -124,6 +124,7 @@
     <Compile Include="BLL\Admin\AddSessionBLL.cs" />
     <Compile Include="BLL\Admin\AddStudentBLL.cs" />
     <Compile Include="BLL\Admin\AdminBLL.cs" />
+    <Compile Include="BLL\Student\StudentBLL.cs" />
     <Compile Include="DAL\Admin\AddFacultyDAL.cs" />
     <Compile Include="DAL\Admin\AddDepartmentDAL.cs" />
     <Compile Include="DAL\Admin\AddNationalityDAL.cs" />
@@ -329,7 +330,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="BLL\Student\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
