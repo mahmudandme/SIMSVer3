@@ -16,11 +16,27 @@ namespace SIMS.BLL.Student
         }
         public int UpdatePhoneNumber(string phoneNumber, string studentId, string email)
         {
-             return studentDal.UpdatePhoneNumber(phoneNumber,studentId,email);
+            return studentDal.UpdatePhoneNumber(phoneNumber, studentId, email);
         }
         public int UpdatePresentAddress(string address, string studentId, string email)
         {
             return studentDal.UpdatePresentAddress(address, studentId, email);
         }
+
+        public List<CourseModel> GetAllCoursesByDeptIdAndYearTermId(int deptId, int yearTermId)
+        {
+            return studentDal.GetAllCoursesByDeptIdAndYearTermId(deptId, yearTermId);
+        }
+
+        public AddStudentModel GetDeptIdAndSessionIdByStudentIdAndEmail(string studentId, string email)
+        {
+            return studentDal.GetDeptIdAndSessionIdByStudentIdAndEmail(studentId, email);
+        }
+
+        public string GetYearTermByYearTermId(int yearTermId)
+        {
+            return studentDal.GetYearTermByYearTermId(yearTermId);
+        }
+
     }
 }

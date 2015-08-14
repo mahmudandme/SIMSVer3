@@ -121,7 +121,7 @@ namespace SIMS.DAL.Admin
             return adminModels;
         }
 
-        public LoginModel GetLoginInformation(string id1, string email1)
+       public LoginModel GetLoginInformation(string id1, string email1)
         {
             LoginModel loginModel = null;
             string query = String.Format("Select * from tblLogin where id=@id and email=@email");
@@ -150,5 +150,127 @@ namespace SIMS.DAL.Admin
             }
             return loginModel;
         }
+
+       public bool IsRegistrationPermissionExist(RegistrationPermissionModel registrationPermissionModel)
+        {
+            bool isRegistrationPermissionExist = false;
+            string query = String.Format(@"Select * from tblRegistrationPermission where deptId=@deptId and sessionId=@sessionId and yearTermId=@yearTermId");
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings[1].ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.Clear();                    
+                    command.Parameters.AddWithValue("@deptId", registrationPermissionModel.DeptId);
+                    command.Parameters.AddWithValue("@sessionId", registrationPermissionModel.studentId);
+                    command.Parameters.AddWithValue("@yearTermId", registrationPermissionModel.YearTermId);
+
+                    connection.Open();
+
+                    SqlDataReader rdr = command.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        isRegistrationPermissionExist = true;
+                    }
+                    connection.Close();
+
+                }
+            }
+            return isRegistrationPermissionExist;
+        }
+       public int SaveRegistrationPermission(RegistrationPermissionModel registrationPermissionModel)
+       {
+           int rowsInserted = 0;
+           string query = String.Format(@"insert into tblRegistrationPermission values(@deptId, @sessionId, @yearTermId");
+           using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings[1].ConnectionString))
+           {
+               using (SqlCommand command = new SqlCommand(query, connection))
+               {
+                   command.Parameters.Clear();                   
+                   command.Parameters.AddWithValue("@deptId", registrationPermissionModel.DeptId);
+                   command.Parameters.AddWithValue("@sessionId", registrationPermissionModel.studentId);
+                   command.Parameters.AddWithValue("@yearTermId", registrationPermissionModel.YearTermId);
+
+                   connection.Open();
+                   rowsInserted = command.ExecuteNonQuery();
+                   connection.Close();
+               }
+           }
+           return rowsInserted;
+       }
+
+       public int GetMaxValueOfYearTermIdFromRegPermission(int deptId, int sessionId)
+        {
+            int maxYearTermValue = 0;
+            string query = String.Format("Select MAX(yearTermId) from tblRegistrationPermission where deptId=@deptId and sessionId=@sessionId");
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings[1].ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query,connection))
+                {
+                    command.Parameters.Clear();
+                    command.Parameters.AddWithValue("@deptId",deptId);
+                    command.Parameters.AddWithValue("@sessionId",sessionId);
+
+                    connection.Open();
+                    maxYearTermValue = Convert.ToInt32(command.ExecuteScalar());                   
+                    connection.Close();
+
+                }
+            }
+            return maxYearTermValue;
+        }
+
+       public bool IsSemisterRegisteredForStudentId(RegistrationPermissionModel registrationPermissionModel)
+        {
+            bool isSemisterRegisteredForStudentID = false;
+            string query = String.Format(@"Select * from tblStudentSemisterRegistration where studentId=@studentId and deptId=@deptId and sessionId=@sessionId and yearTermId=@yearTermId");
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings[1].ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.Clear();
+                    command.Parameters.AddWithValue("@studentId", registrationPermissionModel.studentId);
+                    command.Parameters.AddWithValue("@deptId", registrationPermissionModel.DeptId);
+                    command.Parameters.AddWithValue("@sessionId", registrationPermissionModel.studentId);
+                    command.Parameters.AddWithValue("@yearTermId", registrationPermissionModel.YearTermId);
+
+                    connection.Open();
+
+                    SqlDataReader rdr = command.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        isSemisterRegisteredForStudentID = true;
+                    }
+                    connection.Close();
+
+                }
+            }
+            return isSemisterRegisteredForStudentID;
+        }
+
+       public int SaveSemisterRegistrationForStudent(RegistrationPermissionModel registrationPermissionModel)
+       {
+           int rowsInserted = 0;
+           string query = String.Format(@"insert into tblStudentSemisterRegistration values(@studentId, @deptId, @sessionId, @yearTermId");
+           using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings[1].ConnectionString))
+           {
+               using (SqlCommand command = new SqlCommand(query, connection))
+               {
+                   command.Parameters.Clear();
+                   command.Parameters.AddWithValue("@studentId", registrationPermissionModel.studentId);
+                   command.Parameters.AddWithValue("@deptId", registrationPermissionModel.DeptId);
+                   command.Parameters.AddWithValue("@sessionId", registrationPermissionModel.studentId);
+                   command.Parameters.AddWithValue("@yearTermId", registrationPermissionModel.YearTermId);
+
+                   connection.Open();
+
+                   rowsInserted = command.ExecuteNonQuery();                   
+                   connection.Close();
+               }
+           }
+           return rowsInserted;
+       }
+
+       
+
     }
 }

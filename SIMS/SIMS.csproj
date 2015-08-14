@@ -139,6 +139,7 @@
     <Compile Include="Models\AddFacultyModel.cs" />
     <Compile Include="Models\AddStudentModel.cs" />
     <Compile Include="Models\AdminModel.cs" />
+    <Compile Include="Models\CourseModel.cs" />
     <Compile Include="Models\DepartmentModel.cs" />
     <Compile Include="Models\GenderModel.cs" />
     <Compile Include="Models\GeneratedStudentModel.cs" />

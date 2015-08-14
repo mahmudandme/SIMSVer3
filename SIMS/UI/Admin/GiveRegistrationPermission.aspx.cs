@@ -58,13 +58,7 @@ namespace SIMS.UI.Admin
             registrationPermissionModel.SessionId = Convert.ToInt32(sessionDropDownList.SelectedValue);
             registrationPermissionModel.YearTermId = Convert.ToInt32(yearTermDropDownList.SelectedValue);
 
-            if (CheckSelectedValue())
-            {
-                failStatusLabel.InnerText = "Please select the value";
-                successStatusLabel.InnerText = "";
-            }
-            else
-            {
+            
                 if (addStudentBll.IsRegistrationPermissionExist(registrationPermissionModel))
                 {
                     failStatusLabel.InnerText = "This registration permission already given";
@@ -83,19 +77,9 @@ namespace SIMS.UI.Admin
                         successStatusLabel.InnerText = "";
                     }
                 }
-            }            
+                       
         }
 
-        private bool CheckSelectedValue()
-        {
-            if (departmentDropDownList.SelectedValue=="-1" || sessionDropDownList.SelectedValue=="-1" || yearTermDropDownList.SelectedValue=="-1")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        
     }
 }

@@ -29,13 +29,6 @@ G:\SEIP\Project\Web\MyProjects\SIMS\SIMS\bin\itextsharp.xml
 G:\SEIP\Project\Web\MyProjects\SIMS\SIMS\obj\Debug\SIMS.dll
 G:\SEIP\Project\Web\MyProjects\SIMS\SIMS\obj\Debug\SIMS.pdb
 G:\SEIP\Project\Web\MyProjects\SIMS\SIMS\obj\Debug\SIMS.csprojResolveAssemblyReference.cache
-D:\Mitch\Project\MyProject\SIMS\SIMS\bin\SIMS.dll.config
-D:\Mitch\Project\MyProject\SIMS\SIMS\bin\SIMS.dll
-D:\Mitch\Project\MyProject\SIMS\SIMS\bin\SIMS.pdb
-D:\Mitch\Project\MyProject\SIMS\SIMS\bin\itextsharp.xml
-D:\Mitch\Project\MyProject\SIMS\SIMS\obj\Debug\SIMS.csprojResolveAssemblyReference.cache
-D:\Mitch\Project\MyProject\SIMS\SIMS\obj\Debug\SIMS.dll
-D:\Mitch\Project\MyProject\SIMS\SIMS\obj\Debug\SIMS.pdb
 G:\SEIP\Project\Web\MyProject\SIMS\SIMS\bin\SIMS.dll.config
 G:\SEIP\Project\Web\MyProject\SIMS\SIMS\bin\SIMS.dll
 G:\SEIP\Project\Web\MyProject\SIMS\SIMS\bin\SIMS.pdb
@@ -44,3 +37,9 @@ G:\SEIP\Project\Web\MyProject\SIMS\SIMS\bin\itextsharp.xml
 G:\SEIP\Project\Web\MyProject\SIMS\SIMS\obj\Debug\SIMS.csprojResolveAssemblyReference.cache
 G:\SEIP\Project\Web\MyProject\SIMS\SIMS\obj\Debug\SIMS.dll
 G:\SEIP\Project\Web\MyProject\SIMS\SIMS\obj\Debug\SIMS.pdb
+D:\Mitch\Project\MyProject\SIMS\SIMS\bin\SIMS.dll.config
+D:\Mitch\Project\MyProject\SIMS\SIMS\bin\SIMS.dll
+D:\Mitch\Project\MyProject\SIMS\SIMS\bin\SIMS.pdb
+D:\Mitch\Project\MyProject\SIMS\SIMS\obj\Debug\SIMS.dll
+D:\Mitch\Project\MyProject\SIMS\SIMS\obj\Debug\SIMS.pdb
+D:\Mitch\Project\MyProject\SIMS\SIMS\obj\Debug\SIMS.csprojResolveAssemblyReference.cache

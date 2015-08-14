@@ -32,8 +32,31 @@ namespace SIMS.BLL.Admin
         {
             return adminDal.GetLoginInformation(id1, email1);
         }
-        
 
+        public bool IsRegistrationPermissionExist(RegistrationPermissionModel registrationPermissionModel)
+        {
+            return adminDal.IsRegistrationPermissionExist(registrationPermissionModel);
+        }
+        public int SaveRegistrationPermission(RegistrationPermissionModel registrationPermissionModel)
+        {
+            return adminDal.SaveRegistrationPermission(registrationPermissionModel);
+        }
 
+        public int GetMaxValueOfYearTermIdFromRegPermission(int deptId, int sessionId)
+        {
+            return adminDal.GetMaxValueOfYearTermIdFromRegPermission(deptId,sessionId);
+        }
+
+        public bool IsSemisterRegisteredForStudentId(RegistrationPermissionModel registrationPermissionModel)
+        {
+            return adminDal.IsSemisterRegisteredForStudentId(registrationPermissionModel);
+        }
+
+        public int SaveSemisterRegistrationForStudent(RegistrationPermissionModel registrationPermissionModel)
+        {
+            return adminDal.SaveSemisterRegistrationForStudent(registrationPermissionModel);
+        }
+
+         
     }
 }

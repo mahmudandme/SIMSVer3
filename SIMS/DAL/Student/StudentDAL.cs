@@ -81,5 +81,79 @@ namespace SIMS.DAL.Student
             }
             return rowsUpdated;
         }
+
+        public List<CourseModel> GetAllCoursesByDeptIdAndYearTermId(int deptId, int yearTermId)
+        {
+            List<CourseModel> courseModels = new List<CourseModel>();
+            string query = String.Format("Select * from tblCourse where deptId=@deptId and yearTermId=@yearTermId");
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings[1].ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query,connection))
+                {
+                    command.Parameters.Clear();
+                    command.Parameters.AddWithValue("@deptId", deptId);
+                    command.Parameters.AddWithValue("@yearTermId", yearTermId);
+                    connection.Open();
+                    SqlDataReader rdr = command.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        CourseModel courseModel = new CourseModel();
+                        courseModel.CourseCode = rdr[1].ToString();
+                        courseModel.Title = rdr[2].ToString();
+                        courseModel.Credit = Convert.ToInt32(rdr[3]);
+                        courseModels.Add(courseModel);
+                    }
+                    connection.Close();
+                }
+            }
+            return courseModels;
+        }
+
+        public AddStudentModel GetDeptIdAndSessionIdByStudentIdAndEmail(string studentId, string email)
+        {
+            AddStudentModel addStudentModel= new AddStudentModel();
+            string query = String.Format("Select deptId, sessionId from tblStudent where studentId=@studentId and email=@email");
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings[1].ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query,connection))
+                {
+                    command.Parameters.Clear();
+                    command.Parameters.AddWithValue("@studentId", studentId);
+                    command.Parameters.AddWithValue("@email", email);
+
+                    connection.Open();
+                    SqlDataReader rdr = command.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        addStudentModel.DeptId = Convert.ToInt32(rdr[0]);
+                        addStudentModel.SessionId = Convert.ToInt32(rdr[1]);
+                    }
+                    connection.Close();
+                }
+            }
+            return addStudentModel;
+        }
+
+        public string GetYearTermByYearTermId(int yearTermId)
+        {
+            string yearTerm="";
+            string query = String.Format("Select * from tblYearTerm where id=@yearTermId");
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings[1].ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.Clear();
+                    command.Parameters.AddWithValue("@yearTermId", yearTermId);               
+                    connection.Open();
+                    SqlDataReader rdr = command.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        yearTerm = rdr[1].ToString();
+                    }
+                    connection.Close();
+                }
+            }
+            return yearTerm;
+        }
     }
 }
